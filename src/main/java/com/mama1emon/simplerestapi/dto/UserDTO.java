@@ -1,23 +1,26 @@
 package com.mama1emon.simplerestapi.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
     private Long userId;
-    @NotBlank
+    @NotBlank(message = "Name is mandatory")
     private String name;
-    @NotBlank
+    @NotBlank(message = "Login is mandatory")
     private String login;
-    @NotBlank
+    @NotBlank(message = "Password is mandatory")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$", message = "Password is wrong")
     private String password;
-
     private Set<RoleDTO> roles;
 }

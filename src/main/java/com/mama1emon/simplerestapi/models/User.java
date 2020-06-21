@@ -43,15 +43,15 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "userId"),
             inverseJoinColumns = @JoinColumn(name = "roleId"))
     private Set<Role> roles = new HashSet<>();
 
-    public void addUser(Role role){
-        roles.add(role);
-        role.getUsers().add(this);
-    }
+//    public void addUser(Role role){
+//        roles.add(role);
+//        role.getUsers().add(this);
+//    }
 }

@@ -1,5 +1,6 @@
 package com.mama1emon.simplerestapi.dto;
 
+import com.mama1emon.simplerestapi.models.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,5 +23,5 @@ public class UserDTO {
     @NotBlank(message = "Password is mandatory")
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$", message = "Password is wrong")
     private String password;
-    private Set<RoleDTO> roles;
+    private Set<Role> roles;
 }

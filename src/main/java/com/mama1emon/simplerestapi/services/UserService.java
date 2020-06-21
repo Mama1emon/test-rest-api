@@ -1,6 +1,5 @@
 package com.mama1emon.simplerestapi.services;
 
-import com.mama1emon.simplerestapi.dto.RoleDTO;
 import com.mama1emon.simplerestapi.dto.UserDTO;
 import com.mama1emon.simplerestapi.exceptions.IdNotFound;
 import com.mama1emon.simplerestapi.models.User;
@@ -44,10 +43,7 @@ public class UserService implements IUserService {
         user.setLogin(userDTO.getLogin());
         user.setPassword(userDTO.getPassword());
         user.getRoles().clear();
-        for(RoleDTO roleDTO: userDTO.getRoles()){
-            user.addUser(roleRepository.findById(roleDTO.getRoleId())
-                    .orElseThrow(IdNotFound::new));
-        }
+        user.setRoles(userDTO.getRoles());
         return userRepository.save(user);
     }
 
@@ -57,11 +53,7 @@ public class UserService implements IUserService {
         user.setName(userDTO.getName());
         user.setLogin(userDTO.getLogin());
         user.setPassword(userDTO.getPassword());
-
-        for(RoleDTO roleDTO: userDTO.getRoles()){
-            user.addUser(roleRepository.findById(roleDTO.getRoleId())
-                    .orElseThrow(IdNotFound::new));
-        }
+        user.setRoles(userDTO.getRoles());
         return userRepository.save(user);
     }
 }

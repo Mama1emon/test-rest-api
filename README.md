@@ -1,4 +1,4 @@
-# SimpleRestAPI
+# :calling: SimpleRestAPI
 ## Rest API with Spring Framework (PostgreSQL, Spring Data)  
 Необходимо разработать backend для Restful веб-приложения на Spring Framework / Springboot.  
 Основная задача бекенда - управление пользователями и их ролями.  
